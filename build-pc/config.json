@@ -1,0 +1,27 @@
+{
+    "program-name":  "engine-pc",
+    "program-icon":  "data/icons/icon.ico",
+    "source-dirs":   ["src/"],
+    "build-dir":     "build-pc/",
+    "bin-dir-name":  "bin",
+    "obj-dir-name":  "obj",
+    "build-logging": true,
+    "strip":         true,
+    "console-disabled": true,
+    "defines":       [
+        "PLATFORM_PC",
+        "ENGINE_MODE"
+    ],
+    "includes":      [],
+    "libraries":     [],
+    "libnames":      [],
+    "optimization":  "-O2",
+    "std-c":         "c17",
+    "std-cpp":       "c++17",
+    "compiler-c":    "gcc",
+    "compiler-cpp":  "g++",
+    "linker":        "g++",
+    "warnings":      ["-Wall"],
+    "compile-flags": [],
+    "linker-flags":  []
+}

@@ -1,0 +1,31 @@
+{
+    "program-name":  "editor",
+    "program-icon":  "data/icons/icon.ico",
+    "source-dirs":   [
+        "src/superstructure/pc/",
+        "src/engine/core/",
+        "src/engine/modules/std-pc/"
+    ],
+    "build-dir":     "build-editor/",
+    "bin-dir-name":  "bin",
+    "obj-dir-name":  "obj",
+    "build-logging": true,
+    "strip":         true,
+    "console-disabled": false,
+    "defines":       [
+        "PLATFORM_PC",
+        "EDITOR_MODE"
+    ],
+    "includes":      ["src/engine/"],
+    "libraries":     [],
+    "libnames":      [],
+    "optimization":  "-O2",
+    "std-c":         "c17",
+    "std-cpp":       "c++17",
+    "compiler-c":    "gcc",
+    "compiler-cpp":  "g++",
+    "linker":        "g++",
+    "warnings":      ["-Wall"],
+    "compile-flags": [],
+    "linker-flags":  []
+}

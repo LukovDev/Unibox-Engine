@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Unibox Engine Config",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-editor/tools/all.py",
+            "console": "integratedTerminal"
+        }
+    ]
+}
