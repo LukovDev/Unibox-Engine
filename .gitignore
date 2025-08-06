@@ -12,3 +12,5 @@ build-pc/tools/metadata.json
 *._.DS_Store
 ._*
 .smbdeleteAAA159
+
+target

@@ -3,7 +3,7 @@
 #
 # Этот скрипт должен быть запущен в каталоге "<build-dir>/tools/"
 #
-# [ C-Program-Framework BuildSystem for PC <v2.0> ]
+# [ C-Program-Framework BuildSystem for PC <v2.0.1> ]
 #
 
 
@@ -79,9 +79,9 @@ class Vars:
 
 
 # Вывести лог отладки сборки:
-def log(msg: str) -> None:
+def log(msg: str, end: str = "\n") -> None:
     if not Vars.build_lg: return
-    print(msg)
+    print(msg, end=end)
 
 
 # Вывести лог отладки ошибки:

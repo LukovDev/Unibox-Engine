@@ -1,3 +1,4 @@
+/*
 //
 // debug.h - Заголовочный файл для отладки и логирования программы.
 //
@@ -32,3 +33,4 @@ void DebugLog_err(char* message, ...);
 
 // Логирование фатальной ошибки:
 void DebugLog_fatal(char* message, ...);
+*/

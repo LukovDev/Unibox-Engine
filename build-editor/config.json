@@ -4,7 +4,8 @@
     "source-dirs":   [
         "src/superstructure/pc/",
         "src/engine/core/",
-        "src/engine/modules/std-pc/"
+        "src/engine/modules/std-pc/",
+        "src/engine/modules/opengl-pc/"
     ],
     "build-dir":     "build-editor/",
     "bin-dir-name":  "bin",
@@ -16,9 +17,18 @@
         "PLATFORM_PC",
         "EDITOR_MODE"
     ],
-    "includes":      ["src/engine/"],
-    "libraries":     [],
-    "libnames":      [],
+    "includes":      [
+        "/opt/homebrew/include/",
+        "src/include/",
+        "src/engine/"
+    ],
+    "libraries":     [
+        "/opt/homebrew/lib/",
+        "src/lib/"
+    ],
+    "libnames":      [
+        "SDL3"
+    ],
     "optimization":  "-O2",
     "std-c":         "c17",
     "std-cpp":       "c++17",

@@ -1,3 +1,4 @@
+/*
 //
 // debug.c - Создаёт код для отладки и логирования программы.
 //
@@ -183,3 +184,4 @@ void DebugLog_fatal(char* message, ...) {
     _DebugLog("FATAL", PCLR_FG_BRIGHT_RED, PCLR_FG_BRIGHT_RED, message, args);
     va_end(args);
 }
+*/

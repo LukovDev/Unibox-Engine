@@ -1,3 +1,4 @@
+/*
 //
 // printcolors.h - Заголовочный файл определяющий цвета и прочее для вывода в консоль/терминал.
 //
@@ -51,3 +52,4 @@
 #define PCLR_BG_BRIGHT_MAGENTA "\033[105m"
 #define PCLR_BG_BRIGHT_CYAN    "\033[106m"
 #define PCLR_BG_BRIGHT_WHITE   "\033[107m"
+*/

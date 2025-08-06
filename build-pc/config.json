@@ -1,7 +1,12 @@
 {
-    "program-name":  "engine-pc",
+    "program-name":  "engine",
     "program-icon":  "data/icons/icon.ico",
-    "source-dirs":   ["src/"],
+    "source-dirs":   [
+        "src/superstructure/pc/",
+        "src/engine/core/",
+        "src/engine/modules/std-pc/",
+        "src/engine/modules/opengl-pc/"
+    ],
     "build-dir":     "build-pc/",
     "bin-dir-name":  "bin",
     "obj-dir-name":  "obj",
@@ -10,11 +15,20 @@
     "console-disabled": true,
     "defines":       [
         "PLATFORM_PC",
-        "ENGINE_MODE"
+        "GAME_MODE"
     ],
-    "includes":      [],
-    "libraries":     [],
-    "libnames":      [],
+    "includes":      [
+        "/opt/homebrew/include/",
+        "src/include/",
+        "src/engine/"
+    ],
+    "libraries":     [
+        "/opt/homebrew/lib/",
+        "src/lib/"
+    ],
+    "libnames":      [
+        "SDL3"
+    ],
     "optimization":  "-O2",
     "std-c":         "c17",
     "std-cpp":       "c++17",

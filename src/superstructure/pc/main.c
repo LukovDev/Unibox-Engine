@@ -5,7 +5,7 @@
 
 // Подключаем:
 #include <core/include.h>
-#include "engine/engine.h"
+#include "game/game.h"
 #include "editor/editor.h"
 
 
@@ -15,8 +15,8 @@ int main(int argc, char *argv[]) {
 
     #ifdef EDITOR_MODE
         result = editor_init(argc, argv);
-    #elif ENGINE_MODE
-        result = engine_init(argc, argv);
+    #elif GAME_MODE
+        result = game_init(argc, argv);
     #else
         #error "BUILD MODE IS NOT SUPPORTED."
     #endif
