@@ -5,7 +5,7 @@
         "src/superstructure/pc/",
         "src/engine/core/",
         "src/engine/modules/std-pc/",
-        "src/engine/modules/opengl-pc/"
+        "src/engine/modules/graphics-pc/"
     ],
     "build-dir":     "build-editor/",
     "bin-dir-name":  "bin",

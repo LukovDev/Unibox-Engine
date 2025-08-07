@@ -1,19 +1,11 @@
 //
-// include.h - Заголовочный файл с самыми главными подключениями.
+// include.h - Заголовочный файл с самыми основными подключениями.
 //
 
 #pragma once
 
 
 // Базовые подключения:
-#include <string.h>
-#include <stddef.h>
-#include <stdint.h>
-#include <stdarg.h>
-#include <stdbool.h>
-
-
-// Платформо-зависящие библиотеки:
 #include <modules/std.h>
 
 

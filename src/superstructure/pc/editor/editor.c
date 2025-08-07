@@ -13,16 +13,17 @@
 #include <SDL3/SDL.h>
 #include <glad/glad.h>
 #include <cglm/cglm.h>
+#include <core/files.h>
 
 
 
-const char* vertex_shader_src = "#version 330 core\n"
-    "layout (location = 0) in vec3 aPos;\n"
-    "void main() { gl_Position = vec4(aPos, 1.0); }";
+// const char* vertex_shader_src = "#version 330 core\n"
+//     "layout (location = 0) in vec3 aPos;\n"
+//     "void main() { gl_Position = vec4(aPos, 1.0); }";
 
-const char* fragment_shader_src = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "void main() { FragColor = vec4(1.0, 1.0, 1.0, 1.0); }";
+// const char* fragment_shader_src = "#version 330 core\n"
+//     "out vec4 FragColor;\n"
+//     "void main() { FragColor = vec4(1.0, 1.0, 1.0, 1.0); }";
 
 
 //
@@ -93,6 +94,11 @@ void main_loop(SDL_Window* window, GLuint shader_program, GLuint VAO) {
 
 // Инициализация редактора движка:
 int editor_init(int argc, char *argv[]) {
+    const char* vertex_shader_src = fs_load_file("data/shaders/default.vert", "rb");
+    const char* fragment_shader_src = fs_load_file("data/shaders/default.frag", "rb");
+
+    std_printf("vertex_shader_src: %s\n", vertex_shader_src);
+    std_printf("fragment_shader_src: %s\n", fragment_shader_src);
 
     SDL_Window* window = create_window();
 
@@ -165,13 +171,5 @@ int editor_init(int argc, char *argv[]) {
     SDL_GL_DestroyContext(gl_context);
     SDL_DestroyWindow(window);
     SDL_Quit();
-
-    vec3 a = {1.0f, 2.0f, 3.0f};
-    vec3 b = {4.0f, 5.0f, 6.0f};
-    vec3 result;
-
-    glm_vec3_add(a, b, result);
-
-    printf("Result: %f, %f, %f\n", result[0], result[1], result[2]);
     return 0;
 }
