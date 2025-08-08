@@ -16,16 +16,6 @@
 #include <core/files.h>
 
 
-
-// const char* vertex_shader_src = "#version 330 core\n"
-//     "layout (location = 0) in vec3 aPos;\n"
-//     "void main() { gl_Position = vec4(aPos, 1.0); }";
-
-// const char* fragment_shader_src = "#version 330 core\n"
-//     "out vec4 FragColor;\n"
-//     "void main() { FragColor = vec4(1.0, 1.0, 1.0, 1.0); }";
-
-
 //
 SDL_Window* create_window() {
     if (SDL_Init(SDL_INIT_VIDEO) == false) {
@@ -46,7 +36,7 @@ SDL_Window* create_window() {
 
     // Минимальный и максимальный размер
     SDL_SetWindowMinimumSize(window, 100, 200);
-    SDL_SetWindowMaximumSize(window, 960, 540);
+    //SDL_SetWindowMaximumSize(window, 960, 540);
 
     int x, y;
     SDL_GetWindowPosition(window, &x, &y);
