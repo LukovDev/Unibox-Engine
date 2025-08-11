@@ -87,9 +87,6 @@ int editor_init(int argc, char *argv[]) {
     const char* vertex_shader_src = fs_load_file("data/shaders/default.vert", "rb");
     const char* fragment_shader_src = fs_load_file("data/shaders/default.frag", "rb");
 
-    std_printf("vertex_shader_src: %s\n", vertex_shader_src);
-    std_printf("fragment_shader_src: %s\n", fragment_shader_src);
-
     SDL_Window* window = create_window();
 
     SDL_GLContext gl_context = SDL_GL_CreateContext(window);
