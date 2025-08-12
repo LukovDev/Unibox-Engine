@@ -24,9 +24,10 @@
     ],
     "libraries":     [
         "/opt/homebrew/lib/",
-        "src/lib/"
+        "src/libs/"
     ],
     "libnames":      [
+        "python311",
         "SDL3"
     ],
     "optimization":  "-O2",
