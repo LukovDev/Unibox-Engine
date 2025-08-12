@@ -1,7 +1,1 @@
-src/include/cglm/** linguist-vendored
-
-src/include/glad/** linguist-vendored
-
-src/include/SDL3/** linguist-vendored
-
-src/include/KHR/** linguist-vendored
+src/include/** linguist-vendored
