@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Unibox Engine Config",
+            "name": "C Program Framework Config",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/build-editor/tools/all.py",
+            "program": "${workspaceFolder}/build/tools/all.py",
             "console": "integratedTerminal"
         }
     ]
