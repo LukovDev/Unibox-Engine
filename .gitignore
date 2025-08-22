@@ -1,17 +1,13 @@
 .idea
 
-build-editor/bin/
-build-editor/obj/
-build-editor/tools/metadata.json
-
-build-pc/bin/
-build-pc/obj/
-build-pc/tools/metadata.json
-
 *.DS_Store
 *._.DS_Store
 ._*
 .smbdeleteAAA159
 
-target
+**/**/__pycache__
+**/**/metadata.json
+**/**/bin/*
+**/**/obj/*
+
 commit.bat
