@@ -24,8 +24,11 @@ typedef struct {
 } Image;
 
 
-// Функция загрузки картинки:
+// Загрузить картинку:
 Image* Image_load(const char* filepath, int format);
 
-// Функция освобождения памяти картинки:
-void Image_free(Image* image);
+// Освободить память картинки:
+void Image_destroy(Image** image);
+
+// Получить размер картинки в байтах:
+size_t Image_get_size(Image* image);

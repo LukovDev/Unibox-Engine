@@ -12,7 +12,8 @@
     "build-logging": true,
     "strip":         true,
     "console-disabled": false,
-    "defines":       [],
+    "defines":       [
+    ],
     "includes":      [
         "/opt/homebrew/include/",
         "src/include/",

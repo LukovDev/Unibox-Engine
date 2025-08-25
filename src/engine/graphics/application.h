@@ -13,6 +13,7 @@
 typedef struct Application Application;
 typedef struct AppConfig AppConfig;
 
+
 // Типовая структура приложения:
 typedef struct Application {
     AppConfig* config;  // Конфигурация окна приложения.
@@ -104,8 +105,14 @@ typedef struct AppConfig {
 } AppConfig;
 
 
-// Создать конфигурацию приложения:
+// Создать приложение:
+Application* Application_create();
+
+// Уничтожить приложение:
+void Application_destroy(Application** app);
+
+// Создать конфигурацию приложения (НЕ СОЗДАВАЙТЕ БОЛЬШЕ ОДНОГО И СЛЕДИТЕ ЗА УКАЗАТЕЛЯМИ ВНИМАТЕЛЬНО!):
 AppConfig* AppConfig_create();
 
-// Удалить конфигурацию приложения:
-void AppConfig_destroy(AppConfig* config);
+// Уничтожить конфигурацию приложения (НЕ ИСПОЛЬЗУЙТЕ ЕСЛИ ПРИЛОЖЕНИЕ СОЗДАНО! МОГУТ БЫТЬ ПРОБЛЕМЫ С УКАЗАТЕЛЯМИ!):
+void AppConfig_destroy(AppConfig** config);

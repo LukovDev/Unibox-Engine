@@ -6,25 +6,31 @@
 // Подключаем:
 #include <engine/engine.h>
 #include <engine/core/graphics/window_sdl3.h>
+#include <engine/core/mm/mm.h>
 
 
 // Точка входа в программу:
+#ifndef TESTING_MODE
 int main(int argc, char *argv[]) {
     printf("%s\n", "Hello World!");
 
     AppConfig* config = AppConfig_create();
     config->title = "Window";
-    printf("%s\n", config->title);
+    config->icon = Image_load("data/icons/logo/unibox/Unibox-Full-W.png", IMG_RGBA);
     Application* app = WindowSDL3_create(config);
+    printf("%s, memory used: %lld bytes (%g KB, %g MB)\n", config->title, mm_get_used_size(), mm_get_used_size_kb(), mm_get_used_size_mb());
     if (app->create(app)) {
         printf("Window created.\n");
     } else {
         printf("Window create error.\n");
     }
 
-    while (true) {}
-
-
+    // while (true) {}
+    Application_destroy(&app);
+    printf("memory used: %lld bytes (%g KB, %g MB)\n",
+           mm_get_used_size(),
+           mm_get_used_size_kb(),
+           mm_get_used_size_mb());
 
 
 
@@ -106,3 +112,4 @@ int main(int argc, char *argv[]) {
     // SDL_Quit();
     return 0;
 }
+#endif

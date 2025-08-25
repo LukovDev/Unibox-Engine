@@ -4,20 +4,22 @@
 
 
 // Подключаем:
-#include "window_sdl3.h"
 #include <engine/engine.h>
-#include <engine/graphics/application.h>
-#include <SDL3/SDL.h>
+#include <engine/core/mm/mm.h>
+#include "window_sdl3.h"
 
 
 // Локальные переменные окна:
-static WindowSDL3_Vars AppVars;
+static WindowSDL3_Vars* AppVars;
 
 
 // Создать окно:
 Application* WindowSDL3_create(AppConfig* config) {
-    Application* app = malloc(sizeof(Application));
+    Application* app = Application_create();
     if (app == NULL) return NULL;
+
+    // Создаём локальные переменные окна:
+    AppVars = mm_calloc(1, sizeof(WindowSDL3_Vars));
 
     // Задаём значения полей:
     app->config = config;
@@ -100,7 +102,7 @@ bool WindowSDL3_Impl_create(Application* self) {
         return false;
     }
 
-    AppVars.window = window;
+    AppVars->window = window;
 
     // Настройка окна:
 
