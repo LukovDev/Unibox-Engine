@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     config->title = "Window";
     config->icon = Image_load("data/icons/logo/unibox/Unibox-Full-W.png", IMG_RGBA);
     Application* app = WindowSDL3_create(config);
-    printf("%s, memory used: %lld bytes (%g KB, %g MB)\n", config->title, mm_get_used_size(), mm_get_used_size_kb(), mm_get_used_size_mb());
+    printf("%s, memory used: %zu bytes (%g KB, %g MB)\n", config->title, mm_get_used_size(), mm_get_used_size_kb(), mm_get_used_size_mb());
     if (app->create(app)) {
         printf("Window created.\n");
     } else {
@@ -27,11 +27,10 @@ int main(int argc, char *argv[]) {
 
     // while (true) {}
     Application_destroy(&app);
-    printf("memory used: %lld bytes (%g KB, %g MB)\n",
+    printf("memory used: %zu bytes (%g KB, %g MB)\n",
            mm_get_used_size(),
            mm_get_used_size_kb(),
            mm_get_used_size_mb());
-
 
 
     // Image* image = Image_load("data/icons/logo/unibox/Unibox-Full-W.png", IMG_RGBA);

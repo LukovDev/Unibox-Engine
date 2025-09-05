@@ -2,14 +2,21 @@
 // mm.c - Исходник реализовывающий базовую работу менеджера памяти.
 //
 // Пока что просто обертка над обычным malloc, но позволяет отслеживать
-// использование памяти, и получать размер блока памяти.
-// Отслеживание памяти является атомарным, что подходит для многопоточности.
+// использование памяти, и получать размер блока памяти. Отслеживание
+// памяти является атомарным, что подходит для многопоточности.
 //
 
 
 // Подключаем:
 #include <engine/engine.h>
 #include "mm.h"
+
+
+// Определения функций аллокатора которые используются в этой обертке (пока что используется базовый аллокатор):
+void* (*_m_alloc)   (size_t s)           = malloc;
+void* (*_m_calloc)  (size_t c, size_t s) = calloc;
+void* (*_m_realloc) (void* p, size_t s)  = realloc;
+void  (*_m_free)    (void* p)            = free;
 
 
 // Сколько памяти используется в байтах:
@@ -65,7 +72,7 @@ void* mm_alloc(size_t size) {
     // [размер блока в size_t|сам блок] <- весь блок.
     // ptr = (void*)(raw_ptr + sizeof(size_t)) -> получить сам блок.
     // raw_ptr = (void*)(ptr - sizeof(size_t)) -> получить весь блок.
-    char* raw_ptr = malloc(sizeof(size_t) + size);
+    char* raw_ptr = _m_alloc(sizeof(size_t) + size);
     if (!raw_ptr) return NULL;
     *(size_t*)raw_ptr = size;  // Сохраняем размер.
     void* ptr = raw_ptr + sizeof(size_t);
@@ -76,7 +83,7 @@ void* mm_alloc(size_t size) {
 
 // Выделение памяти с обнулением:
 void* mm_calloc(size_t count, size_t size) {
-    char* raw_ptr = calloc(1, sizeof(size_t) + count * size);
+    char* raw_ptr = _m_calloc(1, sizeof(size_t) + count * size);
     if (!raw_ptr) return NULL;
     *(size_t*)raw_ptr = count * size;  // Сохраняем размер.
     void* ptr = raw_ptr + sizeof(size_t);
@@ -89,7 +96,7 @@ void* mm_calloc(size_t count, size_t size) {
 void* mm_realloc(void* ptr, size_t new_size) {
     if (!ptr) return mm_alloc(new_size);  // Если NULL -> обычный alloc.
     void* raw_ptr = (char*)ptr - sizeof(size_t);
-    void* new_raw_ptr = realloc(raw_ptr, sizeof(size_t) + new_size);
+    void* new_raw_ptr = _m_realloc(raw_ptr, sizeof(size_t) + new_size);
     if (!new_raw_ptr) return NULL;
     mm_used_size_add(new_size - *(size_t*)new_raw_ptr);
     *(size_t*)new_raw_ptr = new_size;
@@ -101,5 +108,5 @@ void* mm_realloc(void* ptr, size_t new_size) {
 void mm_free(void* ptr) {
     if (!ptr) return;
     mm_used_size_sub(mm_get_block_size(ptr));
-    free((char*)ptr - sizeof(size_t));
+    _m_free((char*)ptr - sizeof(size_t));
 }
