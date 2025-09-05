@@ -11,7 +11,7 @@
 
 // Локальные переменные окна:
 static WindowSDL3_Vars* AppVars;
-
+ 
 
 // Создать окно:
 Application* WindowSDL3_create(AppConfig* config) {
